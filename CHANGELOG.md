@@ -1,3 +1,16 @@
+# 2.11.3 (2018-08-14)
+- Fixed a bug with the `stacheNavLink` directive that prevented the use of external urls. [#521](https://github.com/blackbaud/stache2/pull/521)
+- Updated the dependencies to `"@blackbaud/skyux": "2.19.0"` and ` "@blackbaud/skyux-builder": "1.19.2"`. [#521](https://github.com/blackbaud/stache2/pull/521)
+
+# 2.11.2 (2018-08-07)
+- Updated the [skyux-builder-plugin-stache](https://github.com/blackbaud/skyux-builder-plugin-stache/blob/master/CHANGELOG.md#151-2018-08-02) to `1.5.1`.
+
+# 2.11.1 (2018-08-03)
+- Updated version number for `skyux-builder-plugin-stache` to `1.5.0`, allowing users to have nested directories in the global Stache application data.
+
+# 2.11.0 (2018-08-02)
+- Added a header to the `stache-code-block` component that holds the copy-to-clipboard button and shows which language is being displayed. [#515](https://github.com/blackbaud/stache2/pull/515)
+
 # 2.10.0 (2018-07-20)
 - Created a `stache-copy-to-clipboard` component. [#506](https://github.com/blackbaud/stache2/pull/506)
 - Added the `stache-copy-to-clipboard` to the `stache-code-block`.
