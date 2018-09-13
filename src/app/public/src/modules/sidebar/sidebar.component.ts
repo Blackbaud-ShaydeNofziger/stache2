@@ -40,6 +40,8 @@ export class StacheSidebarComponent implements StacheNav, OnInit {
 
     this.headingRoute = `/${headingPath}`;
 
-    return root.children;
+    if (root.children) {
+      return root.children.filter((route: StacheNavLink) => !route.hideFromNavbar);
+    }
   }
 }

@@ -46,11 +46,13 @@ export class HomeComponent {
       children: [
         {
           name: 'Sidebar Link is super long and even longer foo bar baz',
-          path: '/0'
+          path: '/0',
+          hideFromNavbar: false
         },
         {
-          name: 'Sidebar Link',
-          path: '/1'
+          name: 'Hidden Sidebar Link',
+          path: '/1',
+          hideFromNavbar: true
         },
         {
           name: 'Sidebar Link',

@@ -152,6 +152,38 @@ describe('StacheSidebarComponent', () => {
     expect(component.headingRoute).toEqual('/home/foo');
   });
 
+  it('should filter out hidden routes', () => {
+    component.routes = [
+      {
+        name: 'master',
+        path: '/',
+        children: [
+          {
+            name: 'Foo',
+            hideFromNavbar: true,
+            path: '/',
+            children: []
+          },
+          {
+            name: 'Foo',
+            hideFromNavbar: false,
+            path: '/',
+            children: []
+          },
+          {
+            name: 'Foo',
+            path: '/',
+            children: []
+          }
+        ]
+      }
+    ];
+
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component.childRoutes.length).toEqual(2);
+  });
+
   it('should add a heading for the root level route', () => {
     fixture.detectChanges();
     expect(component.heading).toEqual('Home');
