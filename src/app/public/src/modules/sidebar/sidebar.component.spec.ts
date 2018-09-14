@@ -156,7 +156,7 @@ describe('StacheSidebarComponent', () => {
     component.routes = [
       {
         name: 'master',
-        path: '/',
+        path: ['this', 'that'],
         children: [
           {
             name: 'Foo',
@@ -167,7 +167,7 @@ describe('StacheSidebarComponent', () => {
           {
             name: 'Foo',
             hideFromNavbar: false,
-            path: '/',
+            path: ['this', 'that'],
             children: []
           },
           {
@@ -182,6 +182,15 @@ describe('StacheSidebarComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
     expect(component.childRoutes.length).toEqual(2);
+  });
+
+  it('should not filter routes if no routes exist', () => {
+    spyOn<any>(component, 'filterHiddenRoutes').and.callThrough();
+    component.routes = [];
+
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component['filterHiddenRoutes']).not.toHaveBeenCalled();
   });
 
   it('should add a heading for the root level route', () => {

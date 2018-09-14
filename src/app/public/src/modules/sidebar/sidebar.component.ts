@@ -34,14 +34,25 @@ export class StacheSidebarComponent implements StacheNav, OnInit {
 
   private filterRoutes(routes: StacheNavLink[]): StacheNavLink[] {
     const root = routes[0];
-    let headingPath = Array.isArray(root.path) ? root.path.join('/') : root.path;
-    headingPath = headingPath.replace(/^\//, '');
-    this.heading = root.name;
+    if (root) {
+      let headingPath = Array.isArray(root.path) ? root.path.join('/') : root.path;
+      headingPath = headingPath.replace(/^\//, '');
+      this.heading = root.name;
 
-    this.headingRoute = `/${headingPath}`;
+      this.headingRoute = `/${headingPath}`;
 
-    if (root.children) {
-      return root.children.filter((route: StacheNavLink) => !route.hideFromNavbar);
+      return this.filterHiddenRoutes(root.children);
+    }
+  }
+
+  private filterHiddenRoutes(routes: StacheNavLink[]) {
+    if (routes && routes.length) {
+      return routes.filter(route => {
+        route.children = this.filterHiddenRoutes(route.children);
+        if (!route.hideFromNavbar) {
+          return route;
+        }
+      }).filter(child => !!child);
     }
   }
 }
