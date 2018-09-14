@@ -160,13 +160,13 @@ describe('StacheSidebarComponent', () => {
         children: [
           {
             name: 'Foo',
-            hideFromNavbar: true,
+            hideFromSidebar: true,
             path: '/',
             children: []
           },
           {
             name: 'Foo',
-            hideFromNavbar: false,
+            hideFromSidebar: false,
             path: ['this', 'that'],
             children: []
           },

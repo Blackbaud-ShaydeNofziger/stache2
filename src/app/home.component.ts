@@ -47,12 +47,12 @@ export class HomeComponent {
         {
           name: 'Sidebar Link is super long and even longer foo bar baz',
           path: '/0',
-          hideFromNavbar: false
+          hideFromSidebar: false
         },
         {
           name: 'Hidden Sidebar Link',
           path: '/1',
-          hideFromNavbar: true
+          hideFromSidebar: true
         },
         {
           name: 'Sidebar Link',

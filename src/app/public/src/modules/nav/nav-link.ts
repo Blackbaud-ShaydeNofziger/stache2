@@ -8,5 +8,5 @@ export interface StacheNavLink {
   summary?: string;
   isActive?: boolean;
   isCurrent?: boolean;
-  hideFromNavbar?: boolean;
+  hideFromSidebar?: boolean;
 }

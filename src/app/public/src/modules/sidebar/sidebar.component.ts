@@ -49,7 +49,7 @@ export class StacheSidebarComponent implements StacheNav, OnInit {
     if (routes && routes.length) {
       return routes.filter(route => {
         route.children = this.filterHiddenRoutes(route.children);
-        if (!route.hideFromNavbar) {
+        if (!route.hideFromSidebar) {
           return route;
         }
       }).filter(child => !!child);
